@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Dashboard · FinSight{% endblock %}
+{% block content %}
+<section class="page-heading">
+  <div><p class="eyebrow">OVERVIEW</p><h1>Banking dashboard</h1><p class="muted">Understand cash flow, spending patterns, and transactions.</p></div>
+  <a class="button primary" href="{{ url_for('add_transaction') }}">+ Add transaction</a>
+</section>
+<section class="metrics">
+  <article class="metric"><span>Total income</span><strong>₹{{ "{:,.2f}".format(metrics.total_income) }}</strong><small>All recorded income</small></article>
+  <article class="metric"><span>Total expenses</span><strong>₹{{ "{:,.2f}".format(metrics.total_expenses) }}</strong><small>All recorded expenses</small></article>
+  <article class="metric"><span>Net cash flow</span><strong class="{% if metrics.net_cashflow < 0 %}negative{% else %}positive{% endif %}">₹{{ "{:,.2f}".format(metrics.net_cashflow) }}</strong><small>Income minus expenses</small></article>
+  <article class="metric"><span>Transactions</span><strong>{{ metrics.transaction_count }}</strong><small>{{ metrics.flagged_count }} flagged for review</small></article>
+</section>
+<section class="chart-grid">
+  <article class="panel"><div class="panel-heading"><div><p class="eyebrow">CASH FLOW</p><h2>Monthly income vs expenses</h2></div></div><div class="chart-wrap"><canvas id="monthlyChart"></canvas></div></article>
+  <article class="panel"><div class="panel-heading"><div><p class="eyebrow">SPENDING</p><h2>Expenses by category</h2></div></div><div class="chart-wrap"><canvas id="categoryChart"></canvas></div></article>
+</section>
+<section class="panel">
+  <div class="panel-heading"><div><p class="eyebrow">LATEST ACTIVITY</p><h2>Recent transactions</h2></div><a href="{{ url_for('transactions') }}">View all →</a></div>
+  {% if recent %}
+  <div class="table-scroll"><table><thead><tr><th>Date</th><th>Description</th><th>Category</th><th>Type</th><th>Amount</th><th>Status</th></tr></thead><tbody>
+  {% for tx in recent %}<tr><td>{{ tx.transaction_date }}</td><td>{{ tx.description }}</td><td>{{ tx.category }}</td><td><span class="pill {{ tx.transaction_type|lower }}">{{ tx.transaction_type }}</span></td><td>₹{{ "{:,.2f}".format(tx.amount) }}</td><td>{{ tx.status }}</td></tr>{% endfor %}
+  </tbody></table></div>
+  {% else %}<p class="empty">No transactions yet. Add one to get started.</p>{% endif %}
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>
+renderMonthlyChart('monthlyChart', {{ monthly|tojson }});
+renderCategoryChart('categoryChart', {{ category_data|tojson }});
+</script>
+{% endblock %}

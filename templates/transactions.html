@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Transactions · FinSight{% endblock %}
+{% block content %}
+<section class="page-heading"><div><p class="eyebrow">ACTIVITY</p><h1>Transactions</h1><p class="muted">Search, filter, add, and review demo transactions.</p></div><a class="button primary" href="{{ url_for('add_transaction') }}">+ Add transaction</a></section>
+<form class="filters" method="get">
+  <input name="q" value="{{ q }}" placeholder="Search description, merchant, category…">
+  <select name="type"><option value="">All types</option><option value="Income" {% if selected_type == 'Income' %}selected{% endif %}>Income</option><option value="Expense" {% if selected_type == 'Expense' %}selected{% endif %}>Expense</option></select>
+  <button class="button" type="submit">Filter</button><a class="button secondary" href="{{ url_for('transactions') }}">Reset</a>
+</form>
+<section class="panel">
+{% if transactions %}
+<div class="table-scroll"><table><thead><tr><th>Date</th><th>Account</th><th>Description</th><th>Category</th><th>Type</th><th>Amount</th><th>Merchant</th><th>Method</th><th>Status</th><th></th></tr></thead><tbody>
+{% for tx in transactions %}<tr><td>{{ tx.transaction_date }}</td><td>{{ tx.account_id }}</td><td>{{ tx.description }}</td><td>{{ tx.category }}</td><td><span class="pill {{ tx.transaction_type|lower }}">{{ tx.transaction_type }}</span></td><td>₹{{ "{:,.2f}".format(tx.amount|float) }}</td><td>{{ tx.merchant }}</td><td>{{ tx.payment_method }}</td><td>{{ tx.status }}</td><td><form method="post" action="{{ url_for('delete_transaction', transaction_id=tx.id) }}" onsubmit="return confirm('Delete this demo transaction?')"><button class="link danger" type="submit">Delete</button></form></td></tr>{% endfor %}
+</tbody></table></div>
+{% else %}<p class="empty">No matching transactions found.</p>{% endif %}
+</section>
+{% endblock %}

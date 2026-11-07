@@ -1,0 +1,35 @@
+transaction_date,account_id,transaction_type,category,description,amount,merchant,payment_method,status
+2026-01-03,DEMO-1001,Income,Salary,Monthly salary,65000,ACME Demo Payroll,Bank Transfer,Completed
+2026-01-05,DEMO-1001,Expense,Groceries,Weekly groceries,2450,Fresh Mart,Debit Card,Completed
+2026-01-08,DEMO-1001,Expense,Utilities,Electricity bill,1850,City Power,UPI,Completed
+2026-01-10,DEMO-1001,Expense,Transport,Fuel payment,2200,Highway Fuel,Debit Card,Completed
+2026-01-15,DEMO-1001,Expense,Rent,Monthly rent,18000,Demo Properties,Bank Transfer,Completed
+2026-01-20,DEMO-1001,Expense,Shopping,Household purchase,4300,Home Store,Credit Card,Completed
+2026-02-03,DEMO-1001,Income,Salary,Monthly salary,65000,ACME Demo Payroll,Bank Transfer,Completed
+2026-02-06,DEMO-1001,Expense,Groceries,Weekly groceries,3100,Fresh Mart,UPI,Completed
+2026-02-09,DEMO-1001,Expense,Healthcare,Clinic visit,1600,Wellness Clinic,UPI,Completed
+2026-02-12,DEMO-1001,Expense,Utilities,Internet and phone,1250,Connect Telecom,UPI,Completed
+2026-02-15,DEMO-1001,Expense,Rent,Monthly rent,18000,Demo Properties,Bank Transfer,Completed
+2026-02-21,DEMO-1001,Expense,Travel,Train tickets,5600,Demo Rail,Credit Card,Completed
+2026-03-03,DEMO-1001,Income,Salary,Monthly salary,65000,ACME Demo Payroll,Bank Transfer,Completed
+2026-03-05,DEMO-1001,Expense,Groceries,Monthly groceries,2850,Fresh Mart,Debit Card,Completed
+2026-03-08,DEMO-1001,Expense,Education,Online course,4999,Learn Demo,Credit Card,Completed
+2026-03-11,DEMO-1001,Expense,Shopping,Electronics purchase,24500,Demo Electronics,Credit Card,Completed
+2026-03-15,DEMO-1001,Expense,Rent,Monthly rent,18000,Demo Properties,Bank Transfer,Completed
+2026-03-22,DEMO-1001,Expense,Utilities,Water bill,950,City Water,UPI,Completed
+2026-04-03,DEMO-1001,Income,Salary,Monthly salary,65000,ACME Demo Payroll,Bank Transfer,Completed
+2026-04-06,DEMO-1001,Expense,Groceries,Weekly groceries,2750,Fresh Mart,UPI,Completed
+2026-04-10,DEMO-1001,Expense,Travel,Hotel booking,12500,Demo Stay,Credit Card,Completed
+2026-04-15,DEMO-1001,Expense,Rent,Monthly rent,18000,Demo Properties,Bank Transfer,Completed
+2026-04-19,DEMO-1001,Expense,Utilities,Electricity bill,2100,City Power,UPI,Completed
+2026-05-03,DEMO-1001,Income,Salary,Monthly salary,65000,ACME Demo Payroll,Bank Transfer,Completed
+2026-05-07,DEMO-1001,Expense,Groceries,Monthly groceries,3250,Fresh Mart,Debit Card,Completed
+2026-05-12,DEMO-1001,Expense,Shopping,Large appliance,42000,Demo Electronics,Credit Card,Completed
+2026-05-15,DEMO-1001,Expense,Rent,Monthly rent,18000,Demo Properties,Bank Transfer,Completed
+2026-05-21,DEMO-1001,Expense,Healthcare,Pharmacy purchase,1450,Demo Pharmacy,UPI,Completed
+2026-06-03,DEMO-1001,Income,Salary,Monthly salary,65000,ACME Demo Payroll,Bank Transfer,Completed
+2026-06-06,DEMO-1001,Expense,Groceries,Weekly groceries,2900,Fresh Mart,UPI,Completed
+2026-06-09,DEMO-1001,Expense,Travel,Flight booking,38500,Demo Air,Credit Card,Completed
+2026-06-15,DEMO-1001,Expense,Rent,Monthly rent,18000,Demo Properties,Bank Transfer,Completed
+2026-06-20,DEMO-1001,Expense,Utilities,Electricity bill,1950,City Power,UPI,Completed
+2026-06-25,DEMO-1001,Expense,Shopping,Unusually large demo purchase,87500,Demo Premium Store,Credit Card,Completed

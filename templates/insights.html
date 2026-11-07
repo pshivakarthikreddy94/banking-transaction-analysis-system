@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Review insights · FinSight{% endblock %}
+{% block content %}
+<section class="page-heading"><div><p class="eyebrow">TRANSACTION REVIEW</p><h1>Review insights</h1><p class="muted">A transparent demo rule highlights unusually large completed transactions.</p></div></section>
+<div class="notice">Current review threshold: <strong>₹{{ "{:,.2f}".format(threshold) }}</strong>. A transaction is flagged when its amount meets or exceeds this threshold.</div>
+<section class="panel">
+  <div class="panel-heading"><div><p class="eyebrow">FLAGGED RECORDS</p><h2>Transactions to review</h2></div></div>
+  {% if flagged %}<div class="table-scroll"><table><thead><tr><th>Date</th><th>Description</th><th>Merchant</th><th>Category</th><th>Amount</th><th>Status</th></tr></thead><tbody>
+  {% for tx in flagged %}<tr><td>{{ tx.transaction_date }}</td><td>{{ tx.description }}</td><td>{{ tx.merchant }}</td><td>{{ tx.category }}</td><td class="negative">₹{{ "{:,.2f}".format(tx.amount) }}</td><td>{{ tx.status }}</td></tr>{% endfor %}
+  </tbody></table></div>{% else %}<p class="empty">No transactions currently meet the demo review rule.</p>{% endif %}
+</section>
+<p class="muted small">This is not fraud detection. Large legitimate purchases may be flagged, and suspicious low-value transactions may not be flagged.</p>
+{% endblock %}
